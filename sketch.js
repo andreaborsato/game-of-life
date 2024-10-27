@@ -30,6 +30,8 @@ function setup() {
   slider2 = createSlider(0, 255, 0);
   slider2.position(0, 10);
   slider2.size(80);
+
+  //setInterval(reproduction, 2000);
 }
 
 function draw() {
@@ -37,7 +39,18 @@ function draw() {
 
   let myVal = slider2.value();
 
-  reproductionRate = floor(map(myVal, 0, 255, 1000, 0));
+  if(myVal  >= 0 && myVal < 100){
+    reproductionRate = floor(map(myVal, 0, 99, 1000, 100));
+
+  }else if(myVal >= 100 && myVal < 200){
+    reproductionRate = floor(map(myVal, 100, 199, 99, 10));
+  }else if(myVal >= 200){
+    reproductionRate = floor(map(myVal, 200, 255, 10, 0));
+  }
+
+  console.log("myVal: " + myVal, "RR: " + reproductionRate);
+  reproduction();
+
 
   //   window.addEventListener("keyup", (event) => {
   //     flag = false;
@@ -55,13 +68,7 @@ function draw() {
   //     }
   //   }
 
-  for (let i = 0; i < reproductionRate; i++) {
-    let randomCols = floor(random(cols));
-    let randomRows = floor(random(rows));
-    grid[randomCols][randomRows] = floor(random(2));
-    // console.log("aggiunta " + randomCols, randomRows);
-    flag = true;
-  }
+
 
   //keyPressed();
 
@@ -112,4 +119,17 @@ function countNeighbors(grid, x, y) {
   }
   sum -= grid[x][y];
   return sum;
+}
+
+
+
+function reproduction(){
+
+  for (let i = 0; i < reproductionRate; i++) {
+    let randomCols = floor(random(cols));
+    let randomRows = floor(random(rows));
+    grid[randomCols][randomRows] = floor(random(2));
+    // console.log("aggiunta " + randomCols, randomRows);
+    //flag = true;
+  }
 }
