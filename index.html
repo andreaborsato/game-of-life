@@ -17,19 +17,19 @@
     let customId = "client_2";
     let reproductionRate;
 
-// HOME
-    const socket2 = io.connect('http://192.168.0.158:3000', {
-    query: {
-        customId: customId
-    }
-});
-
-//// HOTSPOT
-//     const socket2 = io.connect('http://172.20.10.2:3000', {
+// // HOME
+//     const socket2 = io.connect('http://192.168.0.158:3000', {
 //     query: {
 //         customId: customId
 //     }
 // });
+
+// HOTSPOT
+    const socket2 = io.connect('http://172.20.10.2:3000', {
+    query: {
+        customId: customId
+    }
+});
 
 
 socket2.on("bio-destruction", (data) =>{

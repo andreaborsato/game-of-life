@@ -39,18 +39,16 @@ function draw() {
 
   let myVal = slider2.value();
 
-  if(myVal  >= 0 && myVal < 100){
+  if (myVal >= 0 && myVal < 100) {
     reproductionRate = floor(map(myVal, 0, 99, 1000, 100));
-
-  }else if(myVal >= 100 && myVal < 200){
+  } else if (myVal >= 100 && myVal < 200) {
     reproductionRate = floor(map(myVal, 100, 199, 99, 10));
-  }else if(myVal >= 200){
+  } else if (myVal >= 200) {
     reproductionRate = floor(map(myVal, 200, 255, 10, 0));
   }
 
-  console.log("myVal: " + myVal, "RR: " + reproductionRate);
+  //console.log("myVal: " + myVal, "RR: " + reproductionRate);
   reproduction();
-
 
   //   window.addEventListener("keyup", (event) => {
   //     flag = false;
@@ -67,8 +65,6 @@ function draw() {
   //       }
   //     }
   //   }
-
-
 
   //keyPressed();
 
@@ -121,10 +117,7 @@ function countNeighbors(grid, x, y) {
   return sum;
 }
 
-
-
-function reproduction(){
-
+function reproduction() {
   for (let i = 0; i < reproductionRate; i++) {
     let randomCols = floor(random(cols));
     let randomRows = floor(random(rows));
