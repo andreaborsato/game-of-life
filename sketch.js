@@ -10,12 +10,14 @@ let grid;
 let cols;
 let rows;
 let resolution = 5;
+let cnv;
+let counter = 0;
 //let flag;
 
 let slider2;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  cnv = createCanvas(windowWidth, windowHeight);
   cols = floor(width / resolution);
   rows = floor(height / resolution);
 
@@ -32,12 +34,16 @@ function setup() {
   slider2.size(80);
 
   //setInterval(reproduction, 2000);
+
+  cnv.mouseWheel(changeVal);
 }
 
 function draw() {
   background(0);
 
-  let myVal = slider2.value();
+  //let myVal = slider2.value();
+  let myVal = counter;
+  console.log(myVal);
 
   if (myVal >= 0 && myVal < 100) {
     reproductionRate = floor(map(myVal, 0, 99, 1000, 100));
@@ -124,5 +130,15 @@ function reproduction() {
     grid[randomCols][randomRows] = floor(random(2));
     // console.log("aggiunta " + randomCols, randomRows);
     //flag = true;
+  }
+}
+
+function changeVal(event) {
+  if (event.deltaY > 0) {
+    counter += 20;
+    console.log(counter);
+  } else if (event.deltaY < 0) {
+    counter -= 20;
+    console.log(counter);
   }
 }
