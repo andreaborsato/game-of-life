@@ -35,22 +35,39 @@ function setup() {
 
   //setInterval(reproduction, 2000);
 
-  cnv.mouseWheel(changeVal);
+  //cnv.mouseWheel(changeVal);
 }
 
 function draw() {
   background(0);
 
   //let myVal = slider2.value();
-  let myVal = counter;
-  console.log(myVal);
+  // let myVal = counter;
+  // console.log(myVal);
+  //let myVal = Math.floor(map(incomingDegrad, 0, 5, 0, 255));
+  let myVal = incomingDegrad;
 
-  if (myVal >= 0 && myVal < 100) {
-    reproductionRate = floor(map(myVal, 0, 99, 1000, 100));
-  } else if (myVal >= 100 && myVal < 200) {
-    reproductionRate = floor(map(myVal, 100, 199, 99, 10));
-  } else if (myVal >= 200) {
-    reproductionRate = floor(map(myVal, 200, 255, 10, 0));
+  console.log(reproductionRate);
+
+  // if (myVal >= 0 && myVal < 100) {
+  //   reproductionRate = floor(map(myVal, 0, 99, 1000, 100));
+  // } else if (myVal >= 100 && myVal < 200) {
+  //   reproductionRate = floor(map(myVal, 100, 199, 99, 10));
+  // } else if (myVal >= 200) {
+  //   reproductionRate = floor(map(myVal, 200, 255, 10, 0));
+  // }
+  if (myVal == 0) {
+    reproductionRate = 1000;
+  } else if (myVal == 1) {
+    reproductionRate = 800;
+  } else if (myVal == 2) {
+    reproductionRate = 600 * 0.5;
+  } else if (myVal == 3) {
+    reproductionRate = 400 * 0.5;
+  } else if (myVal == 4) {
+    reproductionRate = 200 * 0.5;
+  } else if (myVal == 5) {
+    reproductionRate = 0;
   }
 
   //console.log("myVal: " + myVal, "RR: " + reproductionRate);

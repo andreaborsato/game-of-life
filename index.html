@@ -17,6 +17,7 @@
  <script>
     let customId = "client_2";
     let reproductionRate;
+    let incomingDegrad;
 
 // // HOME
 //     const socket2 = io.connect('http://192.168.0.158:3000', {
@@ -34,7 +35,8 @@
 
 
 socket2.on("bio-destruction", (data) =>{
-    console.log(data);
+    incomingDegrad = data;
+    console.log("Incoming Degrad: " + incomingDegrad);
 });
 
 
