@@ -29,9 +29,9 @@ function setup() {
     }
   }
 
-  slider2 = createSlider(0, 255, 0);
-  slider2.position(0, 10);
-  slider2.size(80);
+  // slider2 = createSlider(0, 255, 0);
+  // slider2.position(0, 10);
+  // slider2.size(80);
 
   //setInterval(reproduction, 2000);
 
