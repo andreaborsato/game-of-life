@@ -59,7 +59,7 @@ function draw() {
   if (myVal == 0) {
     reproductionRate = 1000;
   } else if (myVal == 1) {
-    reproductionRate = 800;
+    reproductionRate = 700;
   } else if (myVal == 2) {
     reproductionRate = 600 * 0.5;
   } else if (myVal == 3) {
